@@ -95,6 +95,7 @@ namespace NUnitTest
             {
                 get
                 {
+                    //TestCaseData(a, b, discriminant)
                     yield return new TestCaseData(16, -8, 0).Returns((0.25d, 0d)); // Discriminant = 0 - its return 0 only 1 root
                     yield return new TestCaseData(9, 6, -72).Returns((0d, 0d));    // Discriminant < 0 - return 0 roots
                     yield return new TestCaseData(2, 5, 81).Returns((1d, -3.5d));  // Discriminant > 0 - its return 2 roots
