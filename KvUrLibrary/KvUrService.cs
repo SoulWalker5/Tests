@@ -20,31 +20,49 @@ namespace KvUrLibrary
             return discriminant;
         }
 
-        public double[] Roots(int a, int b, double discriminant)
+        public (double, double) Roots(int a, int b, double discriminant)
         {
-            double[] result = new double[2];
+            (double, double) result;
+            //double[] result = new double[2];
 
             if (a == int.MaxValue || b == int.MaxValue || discriminant == double.MaxValue)
             {
-                return new double[] { 0d };
+                result.Item1 = 0;
+                result.Item2 = 0;
+
+                return result;                
+                
+                //return new double[] { 0d };
             }
 
             if (a == int.MinValue || b == int.MinValue || discriminant == double.MinValue)
             {
-                return new double[] { 0d };
+                result.Item1 = 0;
+                result.Item2 = 0;
+
+                return result;
+
+                //return new double[] { 0d };
             }
 
             if (discriminant < 0)
             {
                 Console.WriteLine("No roots");
 
+                result.Item1 = 0;
+                result.Item2 = 0;
+
                 return result;
+
+                //return result;
             }
 
             else if (discriminant == 0)
             {
                 double x = (-b + Math.Sqrt(discriminant)) / (2 * a);
-                result[0] = x;
+                //result[0] = x;
+                result.Item1 = x;
+                result.Item2 = 0;
 
                 Console.WriteLine("Discriminant = {0}, than root = {1}", discriminant, x);
 
@@ -56,8 +74,11 @@ namespace KvUrLibrary
                 double x = (-b + Math.Sqrt(discriminant)) / (2 * a);
                 double x1 = (-b - Math.Sqrt(discriminant)) / (2 * a);
 
-                result[0] = x;
-                result[1] = x1;
+                result.Item1 = x;
+                result.Item2 = x1;
+
+                //result[0] = x;
+                //result[1] = x1;
 
                 Console.WriteLine("Discriminant = {0}, than roots = {1} and {2}", discriminant, x, x1);
 
